@@ -59,7 +59,7 @@ $shadow_options['update_shadowLastChange'] = false;
 # CRYPT
 # clear (the default)
 # This option is not used with ad_mode = true
-$hash = "SHA256";
+$hash = "SHA";
 
 # Local password policy
 # This is applied before directory password policy
