@@ -83,17 +83,17 @@ $hash_options['crypt_salt_length'] = "6";
 # Local password policy
 # This is applied before directory password policy
 # Minimal length
-$pwd_min_length = 0;
+$pwd_min_length = 6;
 # Maximal length
-$pwd_max_length = 0;
+$pwd_max_length = 1000;
 # Minimal lower characters
-$pwd_min_lower = 0;
+$pwd_min_lower = 1;
 # Minimal upper characters
-$pwd_min_upper = 0;
+$pwd_min_upper = 1;
 # Minimal digit characters
-$pwd_min_digit = 0;
+$pwd_min_digit = 1;
 # Minimal special characters
-$pwd_min_special = 0;
+$pwd_min_special = 1;
 # Definition of special characters
 $pwd_special_chars = "^a-zA-Z0-9";
 # Forbidden characters
@@ -200,7 +200,7 @@ $mail_newline = PHP_EOL;
 
 ## SMS
 # Use sms
-$use_sms = true;
+$use_sms = getenv('LDAP_SMS_ENABLED');
 # SMS method (mail, api)
 $sms_method = "mail";
 $sms_api_lib = "lib/smsapi.inc.php";
