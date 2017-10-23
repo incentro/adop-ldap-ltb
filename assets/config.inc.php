@@ -29,11 +29,11 @@
 $debug = false;
 
 # LDAP
-$ldap_url = "ldap://localhost";
+$ldap_url = getenv('LDAP_LTB_URL');
 $ldap_starttls = false;
-$ldap_binddn = "cn=manager,dc=example,dc=com";
-$ldap_bindpw = "secret";
-$ldap_base = "dc=example,dc=com";
+$ldap_binddn = getenv('LDAP_LTB_DN');
+$ldap_bindpw = getenv('LDAP_LTB_PWD');
+$ldap_base = getenv('LDAP_LTB_BS');
 $ldap_login_attribute = "uid";
 $ldap_fullname_attribute = "cn";
 $ldap_filter = "(&(objectClass=person)($ldap_login_attribute={login}))";
@@ -74,7 +74,7 @@ $shadow_options['shadow_expire_days'] = -1;
 # clear (the default)
 # auto (will check the hash of current password)
 # This option is not used with ad_mode = true
-$hash = "SHA256";
+$hash = getenv('LDAP_PWD_CRYPTMETHOD');
 
 # Prefix to use for salt with CRYPT
 $hash_options['crypt_salt_prefix'] = "$6$";
@@ -227,7 +227,7 @@ $max_attempts = 3;
 # Encryption, decryption keyphrase, required if $crypt_tokens = true
 # Please change it to anything long, random and complicated, you do not have to remember it
 # Changing it will also invalidate all previous tokens and SMS codes
-$keyphrase = "secret";
+$keyphrase = getenv('LDAP_PWD_KEYPHRASE');
 
 # Reset URL (if behind a reverse proxy)
 #$reset_url = $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $_SERVER['HTTP_X_FORWARDED_HOST'] . $_SERVER['SCRIPT_NAME'];
